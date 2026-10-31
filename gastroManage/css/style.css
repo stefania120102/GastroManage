@@ -1,0 +1,184 @@
+:root {
+  --menu-color: #D9D9D9;
+  --buscador-color: #ECE6F2;
+  --seleccion-color: #A89C9C;
+  --barra-lateral-color: #4D4D4D;
+  --seccion-lateral-color: #757575;
+  --background-color: #FCFCFE;
+  --button-color: #2C2C2C;
+  --text-color: #020202;
+  --font-family: "Arimo", sans-serif;
+  --espaciado: 1.5rem;
+}
+
+/*IMAGENES*/
+img {
+  /*Así no pierde proporción*/
+  max-width: 100%;
+  height: auto;
+}
+
+/*BODY*/
+body {
+  font-family: var(--font-family);
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+/*HEADER*/
+header{
+  background-color: var(--menu-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+header h1 {
+  margin-left: 250px;
+  padding: 1rem;
+}
+
+/*BOTÓN GENERAL*/
+button {
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*BOTONES CON LINK*/
+button a {
+  color: white;
+}
+
+/*LINKS GENERALES*/
+a {
+  text-decoration: none;
+}
+
+/*NAVEGACIÓN BARRA LATERAL*/
+nav{
+  grid-column: 1;
+  position: fixed;
+  left: 0;
+  width: 250px;
+  height: 100%; /* Ocupa el alto restante de la pantalla */
+  z-index: 90;
+  background-color: var(--barra-lateral-color);
+  top: 112px;
+}
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  top: auto;
+  margin: 0;
+  text-align: center;
+}
+nav li {
+  padding: var(--espaciado);
+  font-size: 1.3rem;
+  border:#020202 0.5px solid;
+  background-color: var(--seccion-lateral-color);
+}
+
+nav ul li:hover { /*Al pasar el mouse por encima: */
+  background-color: var(--seleccion-color); 
+  cursor: pointer;
+}
+nav a{
+  color: var(--text-color);
+}
+
+/*FOOTER POSICION BARRA LATERAL*/
+.sidebar-footer {
+  background-color: var(--barra-lateral-color);
+  color: var(--text-color);
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 90;
+  width: 250px;
+}
+
+/*BOTON SUPPORT BARRA LATERAL*/
+.btn-support {
+  display: block;
+  margin: 0 auto;
+  margin-top: var(--espaciado);
+  cursor: pointer;
+  z-index: 100; /* Asegura que el botón esté por encima de otros elementos */
+}
+
+/*MAIN*/
+main {
+  margin-left: 250px; /* Ajusta este valor según el ancho de tu barra lateral */
+  padding: var(--espaciado);
+  min-height: 100vh; /* Asegura que el main ocupe al menos toda la altura de la ventana */
+  margin-top: 78px; /* Para compensar el espacio ocupado por el header fijo */
+
+}
+
+/*TARJETAS RESUMEN*/
+#resumen {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+#resumen article {
+  background: var(--background-color);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.resumen-reservas{
+  grid-column: 1 / -1; /* Ocupa toda la fila */
+}
+
+.reserva-informacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 6px;
+  background-color: #e3e2e2;
+}
+
+/*TARJETAS INFORMACÓN*/
+#informacion {
+  margin-top: var(--espaciado);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+#informacion article {
+  background: var(--background-color);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.resumen-informacion{
+  grid-column: 1 / -1; /* Ocupa toda la fila */
+}
+
+/*PANTALLA GRANDE*/
+@media (min-width: 992px) {
+  #resumen {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
